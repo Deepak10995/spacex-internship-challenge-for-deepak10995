@@ -7,8 +7,10 @@ import App from './App';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
 import storeConfig from './Store/store';
-const { REACT_APP_BASE_NAME } = process.env;
+
 const { store, persistor } = storeConfig;
+
+const { REACT_APP_BASE_NAME } = process.env;
 
 ReactDOM.render(
   <Provider store={store}>
@@ -24,4 +26,4 @@ ReactDOM.render(
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+reportWebVitals(console.log);

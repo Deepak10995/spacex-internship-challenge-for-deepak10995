@@ -1,3 +1,4 @@
+import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { Suspense } from 'react';
 import './App.css';
 import Toaster from './Components/Alert/Index';
