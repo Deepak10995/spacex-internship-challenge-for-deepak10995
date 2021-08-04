@@ -1,19 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { useDispatch } from 'react-redux';
+import { loadData } from '../../Actions/loadLaunchesActions';
 import LaunchDropDown from '../LaunchesDropdown';
+import List from './List';
 
-const columns = [
-  {
-    Header: 'No.',
-    accessor: 'index',
-  },
-  {
-    Header: 'Launched',
-    accessor: 'age',
-  },
-];
+const Index = (props) => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadData());
+  }, [dispatch]);
 
-function Index() {
   return (
     <div className='container pt-3'>
       <Row>
@@ -22,10 +19,12 @@ function Index() {
         </div>
       </Row>
       <Row>
-        <Col></Col>
+        <Col>
+          <List />
+        </Col>
       </Row>
     </div>
   );
-}
+};
 
 export default Index;

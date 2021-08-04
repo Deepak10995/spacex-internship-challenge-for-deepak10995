@@ -1,19 +1,41 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import React, { Suspense } from 'react';
+import { default as React, Suspense } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
-import Toaster from './Components/Alert/Index';
-import Dashboard from './Components/Dashboard/Dashboard';
 import Spinner from './Components/Spinner/Index';
+import routes from './routes';
 
-function App() {
+const App = (props) => {
+  const menu = routes.map((route, index) => {
+    console.log('this is the route in the callback component', route);
+    return route.component ? (
+      <Route
+        key={index}
+        path={route.path}
+        exact={route.exact}
+        name={route.title}
+        render={(props) => <route.component {...props} title={route.title} />}
+      />
+    ) : (
+      <Redirect from='*' to='/all=launches'></Redirect>
+    );
+  });
   return (
     <div className='App'>
-      <Toaster />
       <Suspense fallback={<Spinner />}>
-        <Dashboard />
+        <Switch>
+          <Route
+            exact
+            path='/'
+            render={() => {
+              return <Redirect from='*' to='/all-launches' />;
+            }}
+          />
+          {menu}
+        </Switch>
       </Suspense>
     </div>
   );
-}
+};
 
 export default App;

@@ -11,6 +11,7 @@ import storeConfig from './Store/store';
 const { store, persistor } = storeConfig;
 
 const { REACT_APP_BASE_NAME } = process.env;
+console.log('app base name ===>>>>', process.env.REACT_APP_BASE_NAME);
 
 ReactDOM.render(
   <Provider store={store}>

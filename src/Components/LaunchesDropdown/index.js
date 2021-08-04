@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(1),
   },
 }));
-function Index() {
+const Index = (props) => {
   const [list] = useState([
     'All Launches',
     'Upcoming Launches',
@@ -47,6 +47,6 @@ function Index() {
       </FormControl>
     </Fragment>
   );
-}
+};
 
 export default Index;
