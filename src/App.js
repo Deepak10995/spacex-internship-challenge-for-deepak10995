@@ -7,7 +7,6 @@ import routes from './routes';
 
 const App = (props) => {
   const menu = routes.map((route, index) => {
-    console.log('this is the route in the callback component', route);
     return route.component ? (
       <Route
         key={index}

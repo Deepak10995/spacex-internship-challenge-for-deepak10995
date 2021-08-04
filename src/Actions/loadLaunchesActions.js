@@ -24,12 +24,8 @@ export const loadData = (request) => async (dispatch) => {
     } else {
       dispatch(loadNotFoundDataSuccess(true));
     }
-    // if (Object.keys(request).length !== 0) {
-    //   dispatch(loadNotFoundDataSuccess(true));
-    // }
     if (response) {
       dispatch(loadDataSuccess(response));
-      //   dispatch(loadPaginationDataSuccess(response));
     }
   } catch (error) {
     dispatch(
@@ -41,4 +37,28 @@ export const loadData = (request) => async (dispatch) => {
     );
     dispatch(loadNotFoundDataSuccess(false));
   }
+};
+export const loadFilterData = (request) => async (dispatch) => {
+  // try {
+  console.log('request from params', request);
+  //   const response = await agent(API.ALL_LAUNCHES);
+  //   console.log('response length ==>> ', response.length);
+  //   if (response.length <= 0) {
+  //     dispatch(loadNotFoundDataSuccess(false));
+  //   } else {
+  //     dispatch(loadNotFoundDataSuccess(true));
+  //   }
+  //   if (response) {
+  //     dispatch(loadDataSuccess(response));
+  //   }
+  // } catch (error) {
+  //   dispatch(
+  //     toasterStatusAction({
+  //       open: true,
+  //       message: error.message,
+  //       severity: 'error',
+  //     })
+  //   );
+  //   dispatch(loadNotFoundDataSuccess(false));
+  // }
 };
