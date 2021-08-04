@@ -4,9 +4,9 @@ import MuiAlert from '@material-ui/lab/Alert';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { loadToasterData } from '../../Actions/baseActions';
-function Alert(props) {
+const Alert = (props) => {
   return <MuiAlert elevation={6} variant='filled' {...props} />;
-}
+};
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Toaster() {
+const Toaster = (props) => {
   const classes = useStyles();
   const [state] = useState({
     vertical: 'top',
@@ -47,4 +47,6 @@ export default function Toaster() {
       </Snackbar>
     </div>
   );
-}
+};
+
+export default Toaster;
