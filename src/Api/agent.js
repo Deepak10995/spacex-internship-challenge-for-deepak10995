@@ -8,11 +8,10 @@ const agent = async (url) => {
     .get(REACT_APP_API_BASE_URL + url)
     .then((res) => res.data)
     .catch((err) => {
-      console.log(err);
       useDispatch(
         toasterStatusAction({
           open: true,
-          message: err.message,
+          message: err,
           severity: 'error',
         })
       );
