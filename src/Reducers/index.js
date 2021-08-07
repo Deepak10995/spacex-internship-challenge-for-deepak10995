@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
 import dialogOpen from './dialogOpenReducer';
+import homePagefilterData from './homePageFilterReducer';
 import homePageData from './homePageReducers';
 import isData from './isDataRequest';
 import isHead from './isHeadRequest';
 import isFetching from './networkRequest';
 import pageData from './pageReducers';
-import pagination from './paginationReducers';
 import toaster from './toasterReducer';
 
 const rootReducer = combineReducers({
@@ -13,10 +13,10 @@ const rootReducer = combineReducers({
   homePageData,
   pageData,
   toaster,
-  pagination,
   isData,
   isHead,
   dialogOpen,
+  homePagefilterData,
 });
 
 export default function combinedRootReducer(state, action) {

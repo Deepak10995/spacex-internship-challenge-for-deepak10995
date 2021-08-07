@@ -115,19 +115,16 @@ const BootstrapSuccessButton = withStyles({
 const List = (props) => {
   const { element, handleFormClick } = props;
 
-  const handleClickLaunch = (data) => {
-    console.log('1');
-    handleFormClick(data);
+  const handleClickLaunch = () => {
+    handleFormClick(element);
   };
-  console.log('this is the element:====>>>>    ', element);
   return (
     <TableRow
       hover
-      role='checkbox'
       tabIndex={-1}
       key={element}
       style={{ curser: 'pointer' }}
-      onclick={() => handleClickLaunch(element)}>
+      onClick={handleClickLaunch}>
       <TableCell>
         {element.flight_number < 10
           ? `0${element.flight_number}`

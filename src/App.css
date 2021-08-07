@@ -34,6 +34,9 @@ img {
   left: 47.2%;
   /* left: 30%; */
 }
+tr td {
+  height: auto !important;
+}
 .a_logo {
   position: fixed;
   top: 20.83px;

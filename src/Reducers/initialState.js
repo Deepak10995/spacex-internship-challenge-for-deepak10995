@@ -6,11 +6,11 @@ export default {
   pageData: {},
   isData: false,
   isHead: {},
-  pagination: {},
   toaster: {
     open: false,
     message: 'test',
     severity: 'success',
   },
   dialogOpen: false,
+  homePagefilterData: 'All Launches',
 };
