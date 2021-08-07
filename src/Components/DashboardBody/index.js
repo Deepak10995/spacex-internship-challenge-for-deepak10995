@@ -11,6 +11,7 @@ import React, { Fragment, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import LaunchDropDown from '../LaunchesDropdown';
+import Loader from '../Spinner/Index';
 import List from './List';
 import View from './view';
 
@@ -59,23 +60,23 @@ const useStyles = makeStyles({
   root: {
     width: '95%',
     marginBottom: 100,
+    position: 'relative',
+  },
+  container: {
+    height: 650,
   },
   tableHead: {
     height: 13,
   },
 });
 const Index = (props) => {
-  // const dispatch = useDispatch();
   const classes = useStyles();
-  console.log('root classes ===>>>', classes);
-  // const history = useHistory()
   const [item, setItem] = useState({});
   const [page, setPage] = React.useState(0);
   const [openDialogView, setOpenDialogView] = useState(false);
   const [rowsPerPage, setRowsPerPage] = useState(12);
   const { isData, homePageData } = useSelector((state) => ({
     isData: state.isData,
-    // homePageData: [],
     homePageData: state.homePageData,
   }));
   // Render to new page
@@ -99,11 +100,6 @@ const Index = (props) => {
   const handleStatusChange = () => {
     setPage(0);
   };
-
-  // useEffect(() => {
-  //   dispatch(loadData());
-  // }, [dispatch]);
-
   return (
     <Fragment>
       <div className='container pt-3'>
@@ -115,7 +111,7 @@ const Index = (props) => {
         <Row>
           <Col>
             <Paper className={classes.root}>
-              <TableContainer>
+              <TableContainer className={classes.container}>
                 <Table stickyHeader aria-label='sticky table'>
                   <TableHead className={classes.tableHead}>
                     <TableRow>
@@ -162,7 +158,7 @@ const Index = (props) => {
                         </div>
                       )
                     ) : (
-                      <p>Loader</p>
+                      <Loader />
                     )}
                   </TableBody>
                 </Table>
@@ -170,7 +166,11 @@ const Index = (props) => {
               <TablePagination
                 rowsPerPageOptions={[12]}
                 component='div'
-                count={homePageData.length}
+                count={
+                  homePageData && homePageData.length
+                    ? homePageData.length
+                    : '0'
+                }
                 rowsPerPage={rowsPerPage}
                 page={page}
                 onPageChange={handleChangePage}

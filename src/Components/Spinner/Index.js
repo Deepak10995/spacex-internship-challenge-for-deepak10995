@@ -1,25 +1,22 @@
-import Backdrop from '@material-ui/core/Backdrop';
-import CircularProgress from '@material-ui/core/CircularProgress';
 import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
-
+import loader from '../../assets/images/loader/Loader.svg';
 const useStyles = makeStyles((theme) => ({
-  backdrop: {
-    zIndex: theme.zIndex.drawer + 1,
-    color: '#fff',
+  loader: {
+    position: 'absolute',
+    left: '42%',
+    top: '40%',
   },
 }));
 
-const SimpleBackdrop = () => {
+const Loader = () => {
   const classes = useStyles();
 
   return (
-    <div>
-      <Backdrop className={classes.backdrop} open={true}>
-        <CircularProgress color='inherit' />
-      </Backdrop>
+    <div className={classes.loader}>
+      <img src={loader} alt='loader' />
     </div>
   );
 };
 
-export default SimpleBackdrop;
+export default Loader;
