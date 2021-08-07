@@ -9,7 +9,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import React, { Fragment, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import LaunchDropDown from '../LaunchesDropdown';
 import List from './List';
 import View from './view';
@@ -60,13 +60,14 @@ const useStyles = makeStyles({
     width: '95%',
     marginBottom: 100,
   },
-  container: {
-    height: 650,
+  tableHead: {
+    height: 13,
   },
 });
 const Index = (props) => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const classes = useStyles();
+  console.log('root classes ===>>>', classes);
   // const history = useHistory()
   const [item, setItem] = useState({});
   const [page, setPage] = React.useState(0);
@@ -74,11 +75,14 @@ const Index = (props) => {
   const [rowsPerPage, setRowsPerPage] = useState(12);
   const { isData, homePageData } = useSelector((state) => ({
     isData: state.isData,
+    // homePageData: [],
     homePageData: state.homePageData,
   }));
+  // Render to new page
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
   };
+  // Not using now // change the row size
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(+event.target.value);
     setPage(0);
@@ -111,9 +115,9 @@ const Index = (props) => {
         <Row>
           <Col>
             <Paper className={classes.root}>
-              <TableContainer className={classes.container}>
+              <TableContainer>
                 <Table stickyHeader aria-label='sticky table'>
-                  <TableHead>
+                  <TableHead className={classes.tableHead}>
                     <TableRow>
                       {columns.map((column, index) => (
                         <TableCell
@@ -146,7 +150,16 @@ const Index = (props) => {
                             );
                           })
                       ) : (
-                        <p>No Result Found For the specified Filter</p>
+                        <div
+                          style={{
+                            position: 'absolute',
+                            top: '50%',
+                            left: '50%',
+                            marginLeft: '-160px',
+                            fontWeight: '500',
+                          }}>
+                          <p>No results Found For the specified Filter</p>
+                        </div>
                       )
                     ) : (
                       <p>Loader</p>

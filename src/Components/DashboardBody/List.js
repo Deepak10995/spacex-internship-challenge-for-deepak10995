@@ -121,7 +121,6 @@ const List = (props) => {
   return (
     <TableRow
       hover
-      role='checkbox'
       tabIndex={-1}
       key={element}
       style={{ curser: 'pointer' }}

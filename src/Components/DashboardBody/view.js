@@ -118,9 +118,9 @@ const BootstrapSuccessButton = withStyles({
 
 const styles = (theme) => ({
   root: {
-    margin: 0,
+    marginBottom: '-50px',
     padding: theme.spacing(4),
-    fontFamily: ['-apple-system'],
+    fontFamily: ['Times New Roman'],
   },
   closeButton: {
     position: 'absolute',
@@ -144,10 +144,10 @@ const DialogTitle = withStyles(styles)((props) => {
           />
         </Col>
         <Col md='2'>
-          <Row>
+          <Row md={12}>
             <h5>{item.mission_name}</h5>
           </Row>
-          <Row>
+          <Row md={12}>
             <p>{item.rocket.rocket_name}</p>
           </Row>
           <Row md={12}>
@@ -185,7 +185,18 @@ const DialogTitle = withStyles(styles)((props) => {
         </IconButton>
       ) : null}
       <Row>
-        <div>this si the description</div>{' '}
+        <div style={{ padding: '10px 10px' }}>
+          <p>
+            {item.details}
+            <a
+              href={item.links.wikipedia}
+              style={{
+                textDecoration: 'none',
+              }}>
+              {' Wikipedia'}
+            </a>
+          </p>
+        </div>
       </Row>
     </MuiDialogTitle>
   );
