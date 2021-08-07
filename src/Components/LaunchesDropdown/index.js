@@ -13,8 +13,8 @@ const useStyles = makeStyles((theme) => ({
   },
   select: {
     '& option': {
-      backgroundColor: '#cccccc',
-      fontSize: 12,
+      backgroundColor: 'black',
+      fontSize: 8,
     },
   },
 }));
@@ -31,6 +31,7 @@ const Index = (props) => {
   const dispatch = useDispatch();
 
   const handleChange = (e) => {
+    props.handleStatusChange();
     setDropValue(e.target.value);
   };
 
@@ -48,7 +49,7 @@ const Index = (props) => {
           onChange={(e) => handleChange(e)}
           className='w-75'
           disableUnderline
-          MenuProps={{ classes: { paper: classes.select } }}
+          option={{ classes: { paper: classes.select } }}
           inputProps={{
             id: 'dropValue-native',
           }}>
