@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
   select: {
     '& option': {
-      backgroundColor: 'black',
+      backgroundColor: 'yellow',
       fontSize: 8,
     },
   },
