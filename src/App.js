@@ -7,16 +7,16 @@ import routes from './routes';
 
 const App = (props) => {
   const menu = routes.map((route, index) => {
-    return route.component ? (
-      <Route
-        key={index}
-        path={route.path}
-        exact={route.exact}
-        name={route.title}
-        render={(props) => <route.component {...props} title={route.title} />}
-      />
-    ) : (
-      <Redirect from='*' to='/all=launches'></Redirect>
+    return (
+      route.component && (
+        <Route
+          key={index}
+          path={route.path}
+          exact={route.exact}
+          name={route.title}
+          render={(props) => <route.component {...props} title={route.title} />}
+        />
+      )
     );
   });
   return (

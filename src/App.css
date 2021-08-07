@@ -23,13 +23,13 @@ img {
   /* height: 20.17px; */
 }
 .s_logo {
-  position: fixed;
+  position: absolute;
   top: 20.83px;
   left: 45%;
   /* left: 30%; */
 }
 .p_logo {
-  position: fixed;
+  position: absolute;
   top: 20.83px;
   left: 47.2%;
   /* left: 30%; */
@@ -38,41 +38,41 @@ tr td {
   height: auto !important;
 }
 .a_logo {
-  position: fixed;
+  position: absolute;
   top: 20.83px;
   left: 49.4%;
   /* top: 20.83px; */
 }
 .c_logo {
-  position: fixed;
+  position: absolute;
   left: 51.6%;
   top: 20.83px;
 }
 .eTop_logo {
-  position: fixed;
+  position: absolute;
   left: 53.8%;
   top: 20.83px;
 }
 
 .eBottom_logo {
-  position: fixed;
+  position: absolute;
   top: 27.6px;
   left: 53.8%;
   /* top: 25%; */
 }
 
 .x_top_left_logo {
-  position: fixed;
+  position: absolute;
   top: 20.83px;
   left: 56.2%;
 }
 .x_center_logo {
-  position: fixed;
+  position: absolute;
   top: 10.83px;
   left: 56%;
 }
 .x_bottom_right_logo {
-  position: fixed;
+  position: absolute;
   top: 30.83px;
   left: 57.2%;
 }

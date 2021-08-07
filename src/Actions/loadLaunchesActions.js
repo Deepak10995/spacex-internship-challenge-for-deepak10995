@@ -14,45 +14,49 @@ export function loadNotFoundDataSuccess(isData) {
   return { type: types.LOADED_DATA_SUCCESS, isData };
 }
 
-export const loadData = (request) => async (dispatch) => {
+// export const loadData = (request) => async (dispatch) => {
+//   try {
+//     const response = await agent(API.UPCOMING_LAUNCHES);
+//     console.log('response length ==>> ', response.length);
+//     if (response.length <= 0) {
+//       dispatch(loadNotFoundDataSuccess(false));
+//     } else {
+//       dispatch(loadNotFoundDataSuccess(true));
+//     }
+//     if (response) {
+//       dispatch(loadDataSuccess(response));
+//     }
+//   } catch (error) {
+//     dispatch(
+//       toasterStatusAction({
+//         open: true,
+//         message: error.message,
+//         severity: 'error',
+//       })
+//     );
+//     dispatch(loadNotFoundDataSuccess(false));
+//   }
+// };
+export const loadFilterData = (request, push) => async (dispatch) => {
   try {
-    const response = await agent(API.UPCOMING_LAUNCHES);
-    console.log('response length ==>> ', response.length);
-    if (response.length <= 0) {
-      dispatch(loadNotFoundDataSuccess(false));
-    } else {
-      dispatch(loadNotFoundDataSuccess(true));
-    }
-    if (response) {
-      dispatch(loadDataSuccess(response));
-    }
-  } catch (error) {
-    dispatch(
-      toasterStatusAction({
-        open: true,
-        message: error.message,
-        severity: 'error',
-      })
-    );
-    dispatch(loadNotFoundDataSuccess(false));
-  }
-};
-export const loadFilterData = (request) => async (dispatch) => {
-  try {
-    console.log('request from params', request);
     let response = [];
     if (request !== 'Upcoming Launches') {
       response = await agent(API.ALL_LAUNCHES);
+      if (request === 'All Launches') {
+        push('all-launches');
+      }
       if (request === 'Failed Launches') {
         response = response.filter((launch) => launch.launch_success === false);
+        push('/failed-launches');
       }
       if (request === 'Successful Launches') {
         response = response.filter((launch) => launch.launch_success === true);
+        push('/successfull-launches');
       }
     } else {
       response = await agent(API.UPCOMING_LAUNCHES);
+      push('upcoming-launches');
     }
-    console.log('response length ==>> ', response.length);
     if (response.length <= 0) {
       dispatch(loadNotFoundDataSuccess(false));
     } else {
