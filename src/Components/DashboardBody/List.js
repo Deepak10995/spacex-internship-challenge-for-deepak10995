@@ -5,14 +5,6 @@ import TableRow from '@material-ui/core/TableRow';
 import Moment from 'moment';
 import React from 'react';
 
-// const useStyles = makeStyles({
-//   root: {
-//     width: '95%',
-//   },
-//   container: {
-//     maxHeight: 400,
-//   },
-// });
 const monthNames = [
   'January',
   'February',
@@ -114,7 +106,6 @@ const BootstrapSuccessButton = withStyles({
 
 const List = (props) => {
   const { element, handleFormClick } = props;
-
   const handleClickLaunch = () => {
     handleFormClick(element);
   };
