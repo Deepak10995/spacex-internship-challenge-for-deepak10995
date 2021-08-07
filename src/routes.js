@@ -2,8 +2,7 @@ import Dashboard from './Components/Dashboard/Dashboard.js';
 
 const RouteLaunches = [
   {
-    path: '/all-launches',
-    exact: true,
+    path: '/',
     component: Dashboard,
     title: 'All Launches',
   },
